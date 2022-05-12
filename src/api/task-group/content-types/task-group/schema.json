@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "task_groups",
+  "info": {
+    "singularName": "task-group",
+    "pluralName": "task-groups",
+    "displayName": "Task group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "task_group"
+    },
+    "board": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::board.board",
+      "inversedBy": "task_groups"
+    }
+  }
+}
